@@ -6,7 +6,7 @@ require_once "./database.php";
 setHeaders();
 
 try {
-    $sql = "SELECT * FROM workers";
+    $sql = "SELECT * FROM cities";
     $result = selectRecords($sql);
 
     echo json_encode($result);

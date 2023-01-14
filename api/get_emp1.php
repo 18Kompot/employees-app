@@ -6,7 +6,13 @@ require_once "./database.php";
 setHeaders();
 
 try {
-    $sql = "SELECT * FROM workers";
+    if (!isset($_GET['id'])) {
+        throw new Exception("bad input");
+    }
+
+    $id = filter_input(INPUT_GET, 'id', FILTER_UNSAFE_RAW);
+
+    $sql = "SELECT * FROM workers WHERE id=$id";
     $result = selectRecords($sql);
 
     echo json_encode($result);

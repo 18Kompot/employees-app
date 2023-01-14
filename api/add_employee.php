@@ -44,6 +44,7 @@ try {
     echo json_encode([
         "ok" => $result
     ]);
+
 } catch (Exception $err) {
     echo json_encode([
         "ok" => false,
